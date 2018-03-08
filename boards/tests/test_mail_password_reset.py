@@ -19,7 +19,7 @@ class PasswordResetMailTests(TestCase):
 
     def test_email_subject(self):
         self.assertEqual(
-            '[Django Boards] Please reset your password',
+            '[RPDLabs Discussion Boards] Please reset your password',
             self.email.subject
         )
 
