@@ -12,7 +12,9 @@ Thumbs.db
 .Trashes
 
 # Compiled Python files
-*.pyc
+__pycache__/
+*.py[cod]
+venv/
 
 # Application specific files
 node_modules
@@ -29,9 +31,11 @@ node_modules
 # dev databases
 *.sqlite*
 
-# secrets directory for passwords/keys/secrets you don't want commited to git
-# repositories
-secrets
+# secrets/ directory for credential storage
+# .env stores Django specific secrets and configs
+# do not commit these to public git repos
+secrets/
+.env
 
 # production logs
 log
