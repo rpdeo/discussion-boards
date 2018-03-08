@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  About -- {{ block.super }}
+{% endblock %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Boards</a></li>
+  <li class="breadcrumb-item active">About</li>
+{% endblock %}
+
+{% block content %}
+  <p class="mb-4">
+    The idea and code behind this web discussion board was built from
+    following the excellent <a href="https://www.djangoproject.com/">Django Web Framework</a> tutorial
+    at <a href="https://simpleisbetterthancomplex.com/series/beginners-guide/1.11/">simpleisbetterthancomplex.com</a>.
+    This site is our adaptation of the tutorial instructions.
+  </p>
+  <p class="ma-4">
+    We wrote all the code by hand while following the tutorial, so it may be
+    different from what is in the original author's <a href="https://github.com/sibtc/django-beginners-guide">github repository</a>.
+    We have not compared it fully yet. This site is deployed here to test out our further ideas on various other pieces of implementation.
+  </p>
+  <p class="ma-4">
+    All credits for the idea and original implementation belong to the author
+    and publisher of above Django tutorial series (<a href="https://simpleisbetterthancomplex.com">simpleisbetterthancomplex.com</a>).
+  </p>
+  <p class="ma-4">
+    For further changes that we have made, all responsibility with respect to
+    this site's code lies with us; and you can file issue reports and track
+    our code at <a href="https://github.com/rpdeo/discussion-board/">our</a> public Github repository.
+  </p>
+{% endblock %}

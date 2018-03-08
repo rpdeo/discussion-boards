@@ -10,6 +10,10 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.urls import reverse
 
 
+def about(request):
+    return render(request, 'about.html')
+
+
 def home(request):
     boards = Board.objects.all()
     return render(request, 'home.html', {'boards': boards})

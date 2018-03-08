@@ -25,6 +25,9 @@ urlpatterns = [
     # Admin
     path('admin/', admin.site.urls),
 
+    # About
+    url(r'^about/$', views.about, name='about'),
+
     # homepage
     url(r'^$', views.BoardListView.as_view(), name='home'),
 
