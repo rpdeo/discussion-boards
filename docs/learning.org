@@ -1,0 +1,17 @@
+* Notes
+  - General flow in this tutorial seems to be TDD focussed.
+** Typical feature implementation steps seem to be,
+   - Prepare models / UML
+   - Design wire-frames
+   - Decide routes
+   - Build test cases
+   - Build templates
+   - Build views
+** Advanced features of Django used in this App.
+   - Template Widget Tweaks to support Bootstrap classes
+   - Template includes / partials
+   - Validating forms
+   - Non-field Errors on Forms
+   - Template Tags / Filters
+   - Tests for Template Tags
+   - Email Backend

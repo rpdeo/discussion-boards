@@ -1,0 +1,8 @@
+* An issue with django-widget-tweaks was noted
+  - see https://github.com/jazzband/django-widget-tweaks/issues/60
+  - django-widget-tweak seems to be unmaintained and won't work with Django
+    2.0, fix is noted in the issue above and seems to work.
+* Use of SimpleMDE
+  - it seems the form element in the template must have novalidate option set.
+  - otherwise simplemde seems to override the submit handler of the button
+    within the form, so the form is not submitted.

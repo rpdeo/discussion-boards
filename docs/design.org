@@ -1,0 +1,37 @@
+* UML Structure of the Boards Application
+** Models / Classes
+*** Board
+    from boards.model
+**** Fields
+     - name: CharField {unique}
+     - description: TextField
+**** Reverse Relationships
+     - topics(): ~Topic[0..*]~
+*** Topic
+    from boards.model
+**** Fields
+     - subject: CharField
+     - last_update: DateTimeField
+     - board: Board
+     - starter: User
+**** Reverse Relationships
+     - posts(): ~Post[1..*]~
+*** Post
+    from boards.model
+**** Fields
+     - message: TextField
+     - created_at: DateTimeField
+     - updated_at: DateTimeField
+     - topic: Topic
+     - created_by: User
+     - updated_by: User
+*** User
+    from django.contrib.auth
+**** Fields
+     - username: CharField {unique}
+     - password: CharField
+     - email: EmailField
+     - is_superuser: BooleanField
+**** Reverse Relationships
+     - posts(): ~Post[0..*]~
+     - topics(): ~Topic[0..*]~
