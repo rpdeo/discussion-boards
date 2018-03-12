@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib.auth import views as auth_views
 
 from accounts import views as accounts_views
@@ -41,6 +41,9 @@ urlpatterns = [
     url(r'^signup/$', accounts_views.signup, name='signup'),
     url(r'^settings/account/$',
         accounts_views.UserUpdateView.as_view(), name='my_account'),
+
+    # social auth
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
 
     # login / logout
     url(r'^login/$', auth_views.LoginView.as_view(template_name='login.html'), name='login'),

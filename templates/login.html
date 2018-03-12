@@ -14,6 +14,21 @@
             {% include 'includes/form.html' %}
             <button type="submit" class="btn btn-primary btn-block">Log in</button>
           </form>
+          <br/>
+          <div class="text-center text-muted">
+            Or continue with...
+          </div>
+          <ul class="nav justify-content-center">
+            <li class="nav-item">
+              <a href="{% url 'social:begin' 'google-oauth2' %}" class="nav-link">Google</a>
+            </li>
+            <li>
+              <a href="{% url 'social:begin' 'facebook' %}" class="nav-link">Facebook</a>
+            </li>
+            <li>
+              <a href="{% url 'social:begin' 'twitter' %}" class="nav-link">Twitter</a>
+            </li>
+          </ul>
         </div>
         <div class="card-footer text-muted text-center">
           New to RPDLabs Discussion Boards? <a href="{% url 'signup' %}">Sign up</a>
@@ -24,6 +39,7 @@
           <a href="{% url 'password_reset' %}" class="text-muted">Forgot your password?</a>
         </small>
       </div>
+
     </div>
   </div>
 {% endblock %}

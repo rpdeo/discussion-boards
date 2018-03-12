@@ -2,10 +2,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Board, Topic, Post
 from .forms import NewTopicForm, PostForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Count
 from django.views.generic import UpdateView, ListView
 from django.utils import timezone
-from django.utils.decorators import method_decorator
+# from django.utils.decorators import method_decorator
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.urls import reverse
 
@@ -14,17 +15,19 @@ def about(request):
     return render(request, 'about.html')
 
 
+@login_required
 def home(request):
     boards = Board.objects.all()
     return render(request, 'home.html', {'boards': boards})
 
 
-class BoardListView(ListView):
+class BoardListView(LoginRequiredMixin, ListView):
     model = Board
     context_object_name = 'boards'
     template_name = 'home.html'
 
 
+@login_required
 def board_topics(request, pk):
     board = get_object_or_404(Board, pk=pk)
     queryset = board.topics.order_by(
@@ -43,7 +46,7 @@ def board_topics(request, pk):
     return render(request, 'topics.html', {'board': board, 'topics': topics})
 
 
-class TopicListView(ListView):
+class TopicListView(LoginRequiredMixin, ListView):
     model = Topic
     context_object_name = 'topics'
     template_name = 'topics.html'
@@ -87,6 +90,7 @@ def new_topic(request, pk):
     return render(request, 'new_topic.html', {'board': board, 'form': form})
 
 
+@login_required
 def topic_posts(request, pk, topic_pk):
     topic = get_object_or_404(Topic, board__pk=pk, pk=topic_pk)
     topic.views += 1
@@ -94,7 +98,7 @@ def topic_posts(request, pk, topic_pk):
     return render(request, 'topic_posts.html', {'topic': topic})
 
 
-class PostListView(ListView):
+class PostListView(LoginRequiredMixin, ListView):
     model = Post
     context_object_name = 'posts'
     template_name = 'topic_posts.html'
@@ -147,8 +151,8 @@ def reply_topic(request, pk, topic_pk):
     return render(request, 'reply_topic.html', {'topic': topic, 'form': form})
 
 
-@method_decorator(login_required, name='dispatch')
-class PostUpdateView(UpdateView):
+# @method_decorator(login_required, name='dispatch')
+class PostUpdateView(LoginRequiredMixin, UpdateView):
     model = Post
     fields = ('message', )
     template_name = 'edit_post.html'
