@@ -1,0 +1,33 @@
+* New Features
+  - [X] Social Auth for users - Working for Google and Twitter, FB pending due
+    to account issue :(
+
+  - [A] Permission System for Model Classes and User Interaction See:
+    https://docs.djangoproject.com/en/2.0/topics/auth/customizing/#custom-permissions
+
+  - [B] Caching for templates
+
+  - [C] Django Channels for WebSockets
+
+  - [A] Improve the User Model
+    - [A] All user to choose a unique username, which would be different than
+      their signin username (different social auth modules produce different
+      usernames).
+
+    - [D] Give each user the ability to upload an avatar image.
+
+    - [B] Also support per user identicons if no avatar image is associated with
+      profile.
+
+* Security
+  - Addition of securty modules
+    - [A] Google reCaptcha during SignUp
+    - [A] Email Validation
+    - cors
+    - crossdomain.xml
+    - robots.txt
+    - Akismet service for Post content validation
+    - Improvements to models to supports moderation
+* Improved dev-workflow
+  - Django-debug-toolbar in dev-dependencies
+  - Profiling and Load Testing
