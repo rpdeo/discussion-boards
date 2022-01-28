@@ -7,6 +7,7 @@ from django.utils.html import mark_safe
 
 
 class Board(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=30, unique=True)
     description = models.CharField(max_length=100)
 
@@ -21,6 +22,7 @@ class Board(models.Model):
 
 
 class Topic(models.Model):
+    id = models.AutoField(primary_key=True)
     subject = models.CharField(max_length=255)
     last_update = models.DateTimeField(auto_now_add=True)
     # available as Board.topics
@@ -57,6 +59,7 @@ class Topic(models.Model):
 
 
 class Post(models.Model):
+    id = models.AutoField(primary_key=True)
     message = models.TextField(max_length=4000)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(null=True)
