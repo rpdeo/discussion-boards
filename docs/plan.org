@@ -23,6 +23,7 @@
   - Addition of securty modules
     - [A] Google reCaptcha during SignUp
     - [A] Email Validation
+    - content security policy
     - cors
     - crossdomain.xml
     - robots.txt
